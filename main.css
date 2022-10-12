@@ -1,3 +1,22 @@
 body {
   background-color: rgb(49, 91, 91);
 }
+
+#app {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 20px;
+  padding: 20px;
+  flex: 1 1 calc(30% - 40px); 
+  text-align: center;
+}
+
+img {
+  border-color: blueviolet;
+  border-radius: 15px;
+  box-sizing: border-box;
+  width: border-box;
+}
