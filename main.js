@@ -254,3 +254,19 @@ const pets = [
   };
   
   app.innerHTML = domString;
+
+  const catsButton = document.querySelector("#cats")
+  const dogsButton = document.querySelector("#dogs")
+  const dinosButton = document.querySelector("#dinos")
+
+  catsButton.addEventListener("click", () => {
+    console.log("meow");
+  });
+
+  dogsButton.addEventListener("click", () => {
+    console.log("woof");
+  });
+
+  dinosButton.addEventListener("click", () => {
+    console.log("roar");
+  });
