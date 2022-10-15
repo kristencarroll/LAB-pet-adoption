@@ -242,18 +242,36 @@ const pets = [
   ];
   const app = document.querySelector("#app");
 
+  const renderToDom = (divId, htmlToRender) => {
+    const selectedDiv =document.querySelector(divId);
+    selectedDiv.innerHTML = htmlToRender;
+  }
+
+  const cardsOnDom = (pets) => {
   let domString = "";
   for (const pet of pets) {
     domString += `<div class="card" style="width: 18rem;">
-        <img src=${pet.imageUrl} class="card-img-top" alt=${pet.name}>
+    <h5 class="card-title">${pet.name}</h5>    
+    <img src=${pet.imageUrl} class="card-img-top" alt=${pet.name}>
         <div class="card-body">
-          <h5 class="card-title">${pet.name}</h5>
-          <p class="card-text">${pet.specialSkill}</p>
+         <p class="card-text">${pet.specialSkill}</p>
         </div>
       </div>`;
-  };
-  
-  app.innerHTML = domString;
+    }
+    renderToDom("app",domString);
+  }
+
+  cardsOnDom(pets);
+
+  const petFilter = (array, petType) => {
+    const petArray = [ ];
+
+    for (const pet of array) {
+      if (pet.type === petType)
+        petArray.push(pet);
+    }
+    return petArray;
+  }
 
   const catsButton = document.querySelector("#cats")
   const dogsButton = document.querySelector("#dogs")
