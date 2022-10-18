@@ -10,7 +10,7 @@ body {
 .card {
   margin: 20px;
   padding: 20px;
-  flex: 1 1 calc(30% - 40px); 
+  flex: 0 1 calc(30% - 40px); 
   text-align: center;
 }
 
