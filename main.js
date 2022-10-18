@@ -240,7 +240,7 @@ const pets = [
       imageUrl: "http://lsae2.iypcdn.com/static//modules/uploads/photos/language1/dino-live-22.jpg?119"
     }
   ];
-  const app = document.querySelector("#app");
+  //const app = document.querySelector("#app");
 
   const renderToDom = (divId, htmlToRender) => {
     const selectedDiv =document.querySelector(divId);
@@ -294,6 +294,27 @@ const pets = [
   
   // 3. Add an event listener for the form submit and pass it the function (callback)
   form.addEventListener('submit', createPet);
+
+
+
+const app = document.querySelector("#app");
+// 2. Add an event listener to capture clicks
+app.addEventListener('click', (event) => {
+// 3. check e.target.id includes "delete"
+if (event.target.id.includes("delete")) {
+  const [, id] = event.target.id.split("--");
+  // 4. add logic to remove from array
+  const index = pets.findIndex(event => event.id === Number(id));
+  pets.splice(index, 1);
+  // 5. Repaint the DOM with the updated array
+  cardsOnDom(pets);
+}
+});
+const startApp = () => {
+cardsOnDom(pets);
+events(); // ALWAYS LAST
+}
+startApp();
 
 
 
