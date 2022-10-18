@@ -255,6 +255,7 @@ const pets = [
     <img src=${pet.imageUrl} class="card-img-top" alt=${pet.name}>
         <div class="card-body">
          <p class="card-text">${pet.specialSkill}</p>
+         <button class="btn btn-danger" id="delete--${pet.id}">Delete</button>
         </div>
       </div>`;
     };
@@ -271,12 +272,40 @@ const pets = [
         petArray.push(pet);
     }
     return petArray;
-  }
+  };
 
+  const form = document.querySelector('form');
+
+  // 2. create a function that grabs all the values from the form, pushes the new object to the array, then repaints the DOM with the new teammate
+  const createPet = (event) => {
+    event.preventDefault(); // EVERY TIME YOU CREATE A FORM
+  
+    const newPetObj = {
+      id: pets.length + 1,
+      name: document.querySelector("#name").value,
+      color: document.querySelector("#color").value,
+      specialSkill: document.querySelector("#specialSkill").value,
+      imageUrl: document.querySelector("#imageUrl").value
+    }
+    pets.push(newPetObj);
+    cardsOnDom(pets);
+    form.reset();
+  }
+  
+  // 3. Add an event listener for the form submit and pass it the function (callback)
+  form.addEventListener('submit', createPet);
+
+
+
+  const showAllPets = document.querySelector("#showAllPets")
   const catsButton = document.querySelector("#cats")
   const dogsButton = document.querySelector("#dogs")
   const dinosButton = document.querySelector("#dinos")
 
+  showAllPets.addEventListener("click", () => {
+    return cardsOnDom(pets)
+  });
+  
   catsButton.addEventListener("click", () => {
     const catList = petFilter(pets, "cat");
     cardsOnDom(catList);
