@@ -254,8 +254,8 @@ const pets = [
     <h5 class="card-title">${pet.name}</h5>    
     <img src=${pet.imageUrl} class="card-img-top" alt=${pet.name}>
         <div class="card-body">
-         <p class="card-text">${pet.specialSkill}</p>
-         <button class="btn btn-danger" id="delete--${pet.id}">Delete</button>
+        <p class="card-text">${pet.specialSkill}</p>
+        <button class="btn btn-danger" id="delete--${pet.id}">Delete</button>
         </div>
       </div>`;
     };
